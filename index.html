@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marvin Baylon</title>
+  <meta name="description" content="Marvin Baylon's Portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <a id="resume-btn" href="assets/file/resume.pdf" target="_blank" download="resume.pdf" aria-label="Download resume" title="Download resume">RESUME/CV</a>
+  <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+  </button>
+  <button id="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <nav id="dot-nav" aria-label="Section navigation"></nav>
+
+  <header id="home" class="section hero">
+    <div class="container hero-content">
+      <h1>build fast<span>.</span> think deep<span>.</span> ship value<span>.</span></h1>
+      <p class="hero-type" id="typewriter"><span id="typewriter-text" class="hero-type-text"></span></p>
+      <div class="hero-actions">
+        <button class="btn-primary hero-learn-btn" onclick="scrollToSection('about')">
+          <span class="btn-arrow" aria-hidden="true">&gt;&gt;</span>
+          <span class="btn-label">LEARN MORE</span>
+          <span class="btn-arrow" aria-hidden="true">&lt;&lt;</span>
+        </button>
+      </div>
+    </div>
+    <button class="section-scroll-hint" onclick="scrollToSection('about')" aria-label="Scroll to about section">
+      <span aria-hidden="true">v</span> SCROLL <span aria-hidden="true">v</span>
+    </button>
+  </header>
+
+  <section id="about" class="section">
+    <div class="container">
+      <p class="tag">BIO: MARVIN BAYLON</p>
+
+      <div class="bio-grid">
+        <div class="bio-image-wrap reveal">
+          <div class="bio-image-placeholder">
+            <img src="assets/file/hero.png" alt="Marvin Baylon portrait">
+          </div>
+        </div>
+
+        <div class="bio-content reveal">
+          <p class="bio-role">Full-Stack Developer</p>
+          <p class="muted">Full-stack developer building scalable, well-structured web applications. I focus on clean architecture, practical implementation, and systems designed to perform reliably over time.</p>
+          <p class="bio-meta">Philippines</p>
+          <p class="bio-availability">Open to full-time and project-based opportunities.</p>
+        </div>
+      </div>
+    </div>
+    <button class="section-scroll-hint" onclick="scrollToSection('skills')" aria-label="Scroll to skills section">
+      <span aria-hidden="true">v</span> MORE INFO  <span aria-hidden="true">v</span>
+    </button>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="container">
+      <p class="tag">CAPABILITIES</p>
+      <div class="skill-grid" id="skill-grid"></div>
+    </div>
+    <button class="section-scroll-hint" onclick="scrollToSection('stack')" aria-label="Scroll to stack section">
+      <span aria-hidden="true">v</span> SCROLL <span aria-hidden="true">v</span>
+    </button>
+  </section>
+
+  <section id="stack" class="section">
+    <div class="container">
+      <p class="tag">Tech Stack &amp; Tooling</p>
+      <div class="stack-grid" id="stack-grid"></div>
+    </div>
+    <button class="section-scroll-hint" onclick="scrollToSection('projects')" aria-label="Scroll to projects section">
+      <span aria-hidden="true">v</span> SCROLL <span aria-hidden="true">v</span>
+    </button>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <p class="tag">Featured work</p>
+      <div class="project-grid" id="project-grid"></div>
+    </div>
+    <button class="section-scroll-hint" onclick="scrollToSection('contact')" aria-label="Scroll to contact section">
+      <span aria-hidden="true">v</span> SCROLL <span aria-hidden="true">v</span>
+    </button>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container contact-wrap">
+      <div>
+        <p class="tag">CONTACT</p>
+        <h2>Have a System in Mind?</h2>
+        <p class="muted">Whether it’s an internal tool, scalable API, or full-stack platform let’s design it properly from day one.</p>
+      </div>
+      <form id="contact-form" class="contact-form" novalidate>
+        <label>
+          NAME
+          <input type="text" name="name" required placeholder="Your name" />
+        </label>
+        <label>
+          PHONE (Optional)
+          <input type="text" name="phone" placeholder="Your phone number" />
+        </label>
+        <label>
+          EMAIL
+          <input type="email" name="email" required placeholder="you@email.com" />
+        </label>
+        <label>
+          MESSAGE
+          <textarea name="message" rows="5" required placeholder="Tell me about your idea"></textarea>
+        </label>
+        <button type="submit" class="btn-primary">SEND</button>
+        <p id="form-feedback" class="feedback" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">MB</p>
+
+      <div class="footer-socials" aria-label="Social links">
+        <a class="footer-social-link" href="https://www.linkedin.com/in/mvbaylon/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="devicon-linkedin-plain" aria-hidden="true"></i>
+        </a>
+        <a class="footer-social-link" href="https://github.com/mbaylon7" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="devicon-github-original" aria-hidden="true"></i>
+        </a>
+        <a class="footer-social-link" href="https://gitlab.com/mbaylon7" target="_blank" rel="noopener noreferrer" aria-label="GitLab">
+          <i class="devicon-gitlab-plain" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <p>© <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
