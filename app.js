@@ -466,14 +466,14 @@ function initCanvas() {
       return `rgba(45,226,230,${alpha})`;
     }
 
-    if (dot.whiteStar) return `rgba(31,41,55,${Math.min(0.55, alpha)})`;
-    return `rgba(8,145,178,${Math.min(0.52, alpha)})`;
+    if (dot.whiteStar) return `rgba(17,24,39,${Math.min(0.62, alpha)})`;
+    return `rgba(55,65,81,${Math.min(0.5, alpha)})`;
   }
 
   function draw() {
     const dark = document.documentElement.classList.contains('dark');
-    const line = dark ? 'rgba(45,226,230,0.11)' : 'rgba(8,145,178,0.12)';
-    const mouseLineBase = dark ? 0.33 : 0.2;
+    const line = dark ? 'rgba(45,226,230,0.11)' : 'rgba(17,24,39,0.16)';
+    const mouseLineBase = dark ? 0.33 : 0.26;
     const t = performance.now() * 0.001;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -495,7 +495,7 @@ function initCanvas() {
 
           ctx.strokeStyle = dark
             ? `rgba(255,255,255,${force * mouseLineBase})`
-            : `rgba(8,145,178,${force * mouseLineBase})`;
+            : `rgba(17,24,39,${force * mouseLineBase})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(mouse.x, mouse.y);
@@ -521,7 +521,7 @@ function initCanvas() {
         const glow = ctx.createRadialGradient(a.x, a.y, 0, a.x, a.y, a.r * 3.6);
         const glowColor = dark
           ? (a.whiteStar ? `rgba(255,255,255,${alpha * 0.28})` : `rgba(45,226,230,${alpha * 0.24})`)
-          : `rgba(8,145,178,${alpha * 0.18})`;
+          : `rgba(17,24,39,${alpha * 0.14})`;
         glow.addColorStop(0, glowColor);
         glow.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = glow;
@@ -553,7 +553,7 @@ function initCanvas() {
 
     if (mouse.active) {
       const glow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, mouse.radius * 0.8);
-      glow.addColorStop(0, dark ? 'rgba(255,255,255,0.1)' : 'rgba(8,145,178,0.1)');
+      glow.addColorStop(0, dark ? 'rgba(255,255,255,0.1)' : 'rgba(17,24,39,0.08)');
       glow.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = glow;
       ctx.beginPath();

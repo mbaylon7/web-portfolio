@@ -8,7 +8,7 @@
   --primary: #2de2e6;
   --secondary: #8b5cf6;
   --accent: #f59e0b;
-  --marker: #b6ff3b;
+  --marker: #fbbf24;
   --shadow: rgba(45, 226, 230, 0.25);
   --mono: 'JetBrains Mono', monospace;
   --sans: 'Inter', sans-serif;
@@ -20,10 +20,11 @@ html.light {
   --text: #111827;
   --muted: rgba(17, 24, 39, 0.7);
   --border: rgba(17, 24, 39, 0.14);
+  --border-dot: rgba(17, 24, 39, 0.42);
   --primary: #0891b2;
   --secondary: #7c3aed;
   --accent: #d97706;
-  --marker: #65a30d;
+  --marker: #c2410c;
   --shadow: rgba(8, 145, 178, 0.2);
 }
 
@@ -525,6 +526,22 @@ textarea:focus {
 
 .footer-brand {
   color: var(--text);
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-brand-logo {
+  height: 2.6rem;
+  width: auto;
+  display: block;
+}
+
+html.light .footer-brand-logo {
+  filter: brightness(0) saturate(100%);
+}
+
+html.dark .footer-brand-logo {
+  filter: brightness(0) saturate(100%) invert(78%) sepia(36%) saturate(1830%) hue-rotate(140deg) brightness(94%) contrast(92%);
 }
 
 .footer-socials {
@@ -635,6 +652,11 @@ html.light #theme-toggle .icon-sun { display: block; }
   position: relative;
 }
 
+html.light .dot-btn {
+  border-color: rgba(17, 24, 39, 0.5);
+  background: rgba(17, 24, 39, 0.06);
+}
+
 .dot-btn::before {
   content: attr(data-label);
   position: absolute;
@@ -662,6 +684,12 @@ html.light #theme-toggle .icon-sun { display: block; }
   background: var(--primary);
   border-color: var(--primary);
   box-shadow: 0 0 10px var(--shadow);
+}
+
+html.light .dot-btn.active {
+  background: #111827;
+  border-color: #111827;
+  box-shadow: 0 0 0 1px rgba(17, 24, 39, 0.12);
 }
 
 .reveal {
